@@ -1,5 +1,6 @@
 {
     "name": "svelte-procedures",
+    "version": "0.7.0",
     "svelte": "src/index.js",
     "module": "dist/index.mjs",
     "main": "dist/index.js",
@@ -20,7 +21,11 @@
         "sirv-cli": "^0.4.4"
     },
     "keywords": [
-        "svelte"
+        "svelte",
+        "step",
+        "step by step",
+        "procedure",
+        "form"
     ],
     "files": [
         "src",
