@@ -7,7 +7,7 @@ validate user's input. `svelte-procedures` is a package that assists you through
 ## Installation
 
 ```
-npm i -D svelte-proceduers
+npm i -D svelte-procedures
 ```
 
 ## How to
