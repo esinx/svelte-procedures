@@ -1,11 +1,14 @@
 <script>
+  import { createEventDispatcher } from "svelte";
   import { writable } from "svelte/store";
 
   import Progress from "./Progress.svelte";
 
   export let procedures = [];
   export let currentStepIndex = 0;
+  export let loop = false;
 
+  const dispatch = createEventDispatcher();
   const datastore = writable({});
 
   const navigation = {
@@ -18,7 +21,15 @@
     },
     hasPrevious: () => currentStepIndex - 1 > -1,
     next: props => {
-      currentStepIndex = (currentStepIndex + 1) % procedures.length;
+      if (loop) {
+        currentStepIndex = (currentStepIndex + 1) % procedures.length;
+      } else {
+        if (currentStepIndex + 1 < procedures.length) {
+          currentStepIndex = currentStepIndex + 1;
+        } else {
+          dispatch("complete", $datastore);
+        }
+      }
     },
     hasNext: () => currentStepIndex + 1 < procedures.length
   };
