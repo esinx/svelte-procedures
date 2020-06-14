@@ -7,9 +7,9 @@
   export let procedures = [];
   export let currentStepIndex = 0;
   export let loop = false;
+  export let datastore = writable({});
 
   const dispatch = createEventDispatcher();
-  const datastore = writable({});
 
   const navigation = {
     to: index => {
