@@ -9,6 +9,8 @@
   export let loop = false;
   export let datastore = writable({});
 
+  export let displayProgress = true;
+
   const dispatch = createEventDispatcher();
 
   const navigation = {
@@ -35,9 +37,11 @@
   };
 </script>
 
-<slot name="progress" {procedures} {currentStepIndex}>
-  <Progress {procedures} {currentStepIndex} />
-</slot>
+{#if displayProgress}
+  <slot name="progress" {procedures} {currentStepIndex}>
+    <Progress {procedures} {currentStepIndex} />
+  </slot>
+{/if}
 {#if procedures[currentStepIndex]}
   {#if procedures[currentStepIndex].props}
     <svelte:component
