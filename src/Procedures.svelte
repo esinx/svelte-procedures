@@ -38,19 +38,17 @@
 <slot name="progress" {procedures} {currentStepIndex}>
   <Progress {procedures} {currentStepIndex} />
 </slot>
-<div class="content">
-  {#if procedures[currentStepIndex]}
-    {#if procedures[currentStepIndex].props}
-      <svelte:component
-        this={procedures[currentStepIndex].component}
-        {...procedures[currentStepIndex].props}
-        {datastore}
-        {navigation} />
-    {:else}
-      <svelte:component
-        this={procedures[currentStepIndex].component}
-        {datastore}
-        {navigation} />
-    {/if}
+{#if procedures[currentStepIndex]}
+  {#if procedures[currentStepIndex].props}
+    <svelte:component
+      this={procedures[currentStepIndex].component}
+      {...procedures[currentStepIndex].props}
+      {datastore}
+      {navigation} />
+  {:else}
+    <svelte:component
+      this={procedures[currentStepIndex].component}
+      {datastore}
+      {navigation} />
   {/if}
-</div>
+{/if}
